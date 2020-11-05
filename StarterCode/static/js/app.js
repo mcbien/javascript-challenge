@@ -14,9 +14,15 @@ var tableData = data;
 
 
 // Event listener - listen for button click
+// Create target
 var button = d3.select("#filter-btn")
-console.log(button)
+// Create handler
+function handleClick() {
+    console.log("Filter button was clicked");
+}
 
+//Bind target and handler - when button is clicked, trigger function
+button.on("click", handleClick)
 
 
 // Grab date entered field
