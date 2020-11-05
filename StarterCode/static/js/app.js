@@ -14,13 +14,40 @@ var tableData = data;
 // print tableData
 // console.log(tableData[0]["datetime"]);
 
-var dateEntered = "1/1/2011"
+var dateEntered = "1/1/2010"
+var tableDataFirst = tableData[0]["datetime"]
+console.log(dateEntered)
+console.log(tableDataFirst)
 
-console.log(tableData.length)
+
+
+for (j = 0; j < tableData.length; j++) {
+    if (dateEntered === tableData[j]["datetime"]) {
+        console.log("it worked")
+
+
+    }
+}
+
+
+
+// console.log(tableData.length)
 // console.log(dateEntered);
 
+
+
+
+
+
+
 for (var j = 0; j < tableData.length; j++) {
+    // if (tableData[j]["datetime"] == dateEntered) {
     console.log(j);
+    // console.log(dateEntered);
+    // console.log(tableData[j]["datetime"]);
+
+    // }
+
 
 }
 
