@@ -18,54 +18,38 @@ var tableData = data;
 var button = d3.select("#filter-btn");
 // Create handler
 button.on("click", function () {
-    console.log("Filter button was clicked");
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
-    console.log(inputValue);
-})
+    //console.log(inputValue)
 
+    var tbody = d3.select("tbody");
 
+    //Select table rows
+    var tableRows = d3.select(".table>tbody>tr")
+    // Blank table rows
+    tableRows.html("");
 
+    for (j = 0; j < tableData.length; j++) {
+        if (inputValue === tableData[j]["datetime"]) {
+            console.log(tableData[j]["datetime"]);
 
-
-
-
-var dateEntered = "1/1/2010";
-
-// Select table body
-var tbody = d3.select("tbody");
-
-for (j = 0; j < tableData.length; j++) {
-    if (dateEntered === tableData[j]["datetime"]) {
-        console.log(tableData[j]["datetime"]);
-
-        // Append row to table
-        var row = tbody.append("tr");
-        // Append cell for Date
-        row.append("td").text(tableData[j]["datetime"]);
-        // Append cell for City
-        row.append("td").text(tableData[j]["city"]);
-        // Append cell for State
-        row.append("td").text(tableData[j]["state"]);
-        // Append cell for Country
-        row.append("td").text(tableData[j]["country"]);
-        // Append cell for Shape
-        row.append("td").text(tableData[j]["shape"]);
-        // Append cell for Duration
-        row.append("td").text(tableData[j]["durationMinutes"]);
-        // Append cell for Comments
-        row.append("td").text(tableData[j]["comments"]);
+            // Append row to table
+            var row = tbody.append("tr");
+            // Append cell for Date
+            row.append("td").text(tableData[j]["datetime"]);
+            // Append cell for City
+            row.append("td").text(tableData[j]["city"]);
+            // Append cell for State
+            row.append("td").text(tableData[j]["state"]);
+            // Append cell for Country
+            row.append("td").text(tableData[j]["country"]);
+            // Append cell for Shape
+            row.append("td").text(tableData[j]["shape"]);
+            // Append cell for Duration
+            row.append("td").text(tableData[j]["durationMinutes"]);
+            // Append cell for Comments
+            row.append("td").text(tableData[j]["comments"]);
+        }
     }
-}
 
-
-
-
-
-
-
-
-
-
-
-    // }
+})
