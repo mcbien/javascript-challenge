@@ -16,37 +16,42 @@ console.log("inglobalscope", this)
 // Event listener - listen for button click
 // Create target
 // var button = d3.select("#filter-btn");
+// might need to comment out the line below
 var inputElement = d3.select("input");
 
 // Create an empty object
-var filterPairs = {}
+var filterPairs = {};
 
 // Create handler
 inputElement.on("change", function () {
 
     var inputValue = inputElement.property("value");
     var inputId = inputElement.property("id");
-    console.log(inputId)
-    console.log("inEventHandler", this)
+    console.log(inputId);
+    console.log("inEventHandler", this);
 
-    // obj["key3"] = "value3";
+    //append fitler value to filterPairs list
     filterPairs[inputId] = inputValue;
-    // delete thisIsObject["Cow"];
-    //Delete filter pairs if value is blank
+
+    // Delete filter pairs if value is blank
     if (inputValue === "") {
         delete filterPairs[inputId];
     }
-    console.log("filterPairs", filterPairs)
+
+
+
+    console.log("filterPairs", filterPairs);
+    console.log(filterPairs)
 
     var tbody = d3.select("tbody");
 
     //Select table rows
-    var tableRows = d3.select(".table>tbody>tr")
+    var tableRows = d3.select(".table>tbody>tr");
     // Blank table rows
     tableRows.html("");
 
     for (j = 0; j < tableData.length; j++) {
-        if (inputValue === tableData[j][inputId] || inputValue === "") {
+        if (inputValue === tableData[j][inputId]) {
             console.log(tableData[j][inputId]);
 
             // Append row to table
