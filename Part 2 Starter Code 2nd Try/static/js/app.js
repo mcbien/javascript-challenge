@@ -11,46 +11,49 @@ var tableData = data;
 //    b. filter data.js data to date entered
 //    c. blank existing table
 //    d. add rows to table element in html via loop for all results via loop
-console.log("inglobalscope", this)
+
 
 // Event listener - listen for button click
 // Create target
-// var button = d3.select("#filter-btn");
-// might need to comment out the line below
-var inputElement = d3.select("input");
-
-// Create an empty object
-var filterPairs = {};
-
+var button = d3.select("#filter-btn");
 // Create handler
-inputElement.on("change", function () {
+button.on("click", function () {
+    var dateElement = d3.select("#datetime");
+    var dateValue = dateElement.property("value");
+    console.log(`Date Element ${dateElement}`);
+    console.log(`Date Value ${dateValue}`)
 
-    var inputValue = inputElement.property("value");
-    var inputId = inputElement.property("id");
-    console.log(inputId);
-    console.log("inEventHandler", this);
+    var cityElement = d3.select("#city");
+    var cityValue = cityElement.property("value");
+    console.log(`City Element ${cityElement}`);
+    console.log(`City Value ${cityValue}`)
 
-    //append fitler value to filterPairs list
-    filterPairs[inputId] = inputValue;
+    var stateElement = d3.select("#state");
+    var stateValue = stateElement.property("value");
+    console.log(`State Element ${stateElement}`);
+    console.log(`State Value ${stateValue}`)
 
-    // Delete filter pairs if value is blank
-    if (inputValue === "") {
-        delete filterPairs[inputId];
-    }
+    var countryElement = d3.select("#country");
+    var countryValue = countryElement.property("value");
+    console.log(`Country Element ${countryElement}`);
+    console.log(`Country Value ${countryValue}`)
 
-    console.log("filterPairs", filterPairs);
-    console.log(filterPairs)
+    var shapeElement = d3.select("#shape");
+    var shapeValue = shapeElement.property("value");
+    console.log(`Shape Element ${shapeElement}`);
+    console.log(`Shape Value ${shapeValue}`)
+
 
     var tbody = d3.select("tbody");
 
     //Select table rows
-    var tableRows = d3.select(".table>tbody>tr");
+    var tableRows = d3.select(".table>tbody>tr")
     // Blank table rows
     tableRows.html("");
 
     for (j = 0; j < tableData.length; j++) {
-        if (inputValue === tableData[j][inputId]) {
-            console.log(tableData[j][inputId]);
+        if (dateValue === tableData[j]["datetime"] || cityValue === tableData[j]["city"]) {
+            console.log(tableData[j]["datetime"]);
 
             // Append row to table
             var row = tbody.append("tr");
